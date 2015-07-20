@@ -10,4 +10,7 @@ RUN /opt/logstash/bin/plugin install ./logstash-input-journald.gem
 VOLUME /var/lib/logstash-journald
 ENV SINCEDB_DIR=/var/lib/logstash-journald
 
+# Override the entrypoint script from the base image to ensure Logstash runs
+# as root, which is required to access the journal.
 WORKDIR /
+COPY ./docker-entrypoint.sh ./

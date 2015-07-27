@@ -7,14 +7,15 @@ This uses the [official Logstash
 repo](https://registry.hub.docker.com/_/logstash/) as its base. Currently it
 comes with version 1.5.2. It then installs the
 [logstash-input-journald](https://github.com/stuart-warren/logstash-input-journald)
-plugin (or to be precise, [a
-fork](https://github.com/stuart-warren/logstash-input-journald/pull/6)).
+plugin.
 
 Note that the `logstash` process runs as `root`, so it can access the journal.
 
 ## Usage
 
-Please follow the [Logstash instructions](https://registry.hub.docker.com/_/logstash/). You'll need to mount the `/var/log/journal` directory as a read-only volume:
+Please follow the [Logstash
+instructions](https://registry.hub.docker.com/_/logstash/). You'll need to mount
+the `/var/log/journal` directory as a read-only volume:
 
 ```bash
 docker run \
